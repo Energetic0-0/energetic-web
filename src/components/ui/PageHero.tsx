@@ -36,7 +36,7 @@ export function PageHero({
       className={cn(
         "relative pt-32 pb-28 md:pt-44 md:pb-36 overflow-hidden",
         isDark
-          ? "bg-[#060f2e]"
+          ? "bg-[#071b12]"
           : "bg-gradient-to-br from-[#edf2ff] via-[#e0eaff] to-[#d4dffa]",
       )}
     >

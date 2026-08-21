@@ -19,7 +19,7 @@ export function AboutDepartments({ isDark }: AboutDepartmentsProps) {
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#070d24]"
+          ? "bg-[#071b12]"
           : "bg-gradient-to-b from-[#edf3ff] via-[#f6f9ff] to-white",
       )}
     >

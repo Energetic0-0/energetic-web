@@ -33,7 +33,7 @@ export function Partners() {
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#0a1433]"
+          ? "bg-[#0b2317]"
           : "bg-gradient-to-b from-[#edf3ff] via-[#f6f9ff] to-white",
       )}
     >

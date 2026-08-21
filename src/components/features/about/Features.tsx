@@ -71,7 +71,7 @@ export function AboutFeatures({
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#0a1433]"
+          ? "bg-[#0b2317]"
           : isCompact
             ? "bg-gradient-to-b from-[#edf3ff] via-[#f0f6ff] to-white"
             : "bg-gradient-to-b from-white via-[#f6f9ff] to-[#edf3ff]",

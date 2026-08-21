@@ -25,17 +25,27 @@ export function Hero() {
   const t = language === "en" ? HERO_CONTENT.en : HERO_CONTENT.ar;
   const isRTL = language === "ar";
   const isDark = mounted ? resolvedTheme === "dark" : true;
+
+  const supplierLogos = Array.from({ length: 11 }, (_, index) => ({
+    src: `/img/Suppliers/s${index + 1}.png`,
+    alt: `Supplier logo ${index + 1}`,
+  }));
+  const partnerLogos = Array.from({ length: 15 }, (_, index) => ({
+    src: `/img/Partners/p${index + 1}.png`,
+    alt: `Partner logo ${index + 1}`,
+  }));
+  /* Customer logos can be restored when the customer images are added.
   const customerLogos = Array.from({ length: 15 }, (_, index) => ({
     src: `/img/customers/${index + 1}.jpg`,
     alt: `Customer logo ${index + 1}`,
-  }));
+  })); */
 
   return (
     <section
       className={cn(
         "relative w-full overflow-hidden transition-colors duration-500 min-h-[100svh] pt-28",
         isDark
-          ? "bg-[#060f2e]"
+          ? "bg-[#071b12]"
           : "bg-gradient-to-br from-[#f0f6ff] via-[#e8f0fe] to-[#dde8f8]",
       )}
     >
@@ -49,7 +59,7 @@ export function Hero() {
             className="object-cover opacity-20"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060f2e]/80 via-[#060f2e]/60 to-[#060f2e]/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#071b12]/80 via-[#071b12]/60 to-[#071b12]/90" />
         </div>
       )}
 
@@ -234,7 +244,61 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ── Customers marquee ────────────────────────────────────── */}
+      {/* Supplier and partner marquees */}
+      <div className="relative z-20 w-full pb-10">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 space-y-5">
+          {[
+            { title: language === "en" ? "Our Suppliers" : "الموردون", logos: supplierLogos },
+            { title: language === "en" ? "Our Partners" : "شركاؤنا", logos: partnerLogos },
+          ].map((row) => (
+            <div key={row.title} className={cn("mt-2 sm:mt-6", isRTL && "rtl")}>
+              <p
+                className={cn(
+                  "text-[10px] sm:text-xs font-semibold uppercase tracking-wider mb-3",
+                  isDark ? "text-gray-400" : "text-[#4a6fa5]",
+                )}
+              >
+                {row.title}
+              </p>
+              <div
+                className={cn(
+                  "rounded-xl sm:rounded-2xl border overflow-hidden",
+                  isDark
+                    ? "border-white/10 bg-white/5"
+                    : "border-[#cfe5d5]/80 bg-white/60",
+                )}
+              >
+                <Marquee
+                  pauseOnHover
+                  reverse={isRTL}
+                  className="py-1.5 sm:py-2 [--duration:30s] [--gap:0.75rem]"
+                >
+                  {row.logos.map((logo) => (
+                    <div
+                      key={logo.src}
+                      className={cn(
+                        "flex items-center justify-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-2 sm:py-3 shrink-0",
+                        isDark ? "bg-white/5" : "bg-white",
+                      )}
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={120}
+                        height={60}
+                        className="h-10 sm:h-14 w-auto object-contain"
+                      />
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/*
+      ── Customers marquee ──────────────────────────────────────
       <div className="relative z-20 w-full pb-10">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className={cn("mt-2 sm:mt-6", isRTL && "rtl")}>
@@ -281,6 +345,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 }

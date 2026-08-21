@@ -28,103 +28,103 @@
 }
 
 :root {
-  /* ========== LIGHT MODE (Clean + Tech Blue) ========== */
+  /* ========== LIGHT MODE (Renewable Green) ========== */
 
-  --background: #f5f9ff; /* very soft blue-white */
-  --foreground: #0a1a4f; /* deep navy */
+  --background: #f6faf7;
+  --foreground: #10251b;
 
   --card: #ffffff;
-  --card-foreground: #0a1a4f;
+  --card-foreground: #10251b;
 
   --popover: #ffffff;
-  --popover-foreground: #0a1a4f;
+  --popover-foreground: #10251b;
 
-  --primary: #4db8ff; /* Light Brand Blue */
+  --primary: #1f9d55;
   --primary-foreground: #ffffff;
 
-  --secondary: #e6f2ff; /* soft blue */
-  --secondary-foreground: #0a1a4f;
+  --secondary: #e5f4e9;
+  --secondary-foreground: #10251b;
 
-  --muted: #edf4ff;
-  --muted-foreground: #4a6fa5;
+  --muted: #edf7ef;
+  --muted-foreground: #557061;
 
-  --accent: #0b3b8f; /* deeper brand blue */
+  --accent: #0e5a34;
   --accent-foreground: #ffffff;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #d6e6ff;
-  --input: #d6e6ff;
-  --ring: #1ea5ff;
+  --border: #cfe5d5;
+  --input: #cfe5d5;
+  --ring: #2bbf68;
 
   --radius: 0.5rem;
 }
 
-/* ===== Dark Mode (Premium Deep Blue, Not Gray) ===== */
+/* ===== Dark Mode (Deep Forest) ===== */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a1a4f; /* brand navy */
-    --foreground: #e6f2ff;
+    --background: #071b12;
+    --foreground: #e7f6eb;
 
-    --card: #0f255f;
-    --card-foreground: #e6f2ff;
+    --card: #0e2b1d;
+    --card-foreground: #e7f6eb;
 
-    --popover: #0f255f;
-    --popover-foreground: #e6f2ff;
+    --popover: #0e2b1d;
+    --popover-foreground: #e7f6eb;
 
-    --primary: #1e5eff;
+    --primary: #50d982;
     --primary-foreground: #ffffff;
 
-    --secondary: #102a6b;
-    --secondary-foreground: #e6f2ff;
+    --secondary: #123b27;
+    --secondary-foreground: #e7f6eb;
 
-    --muted: #102a6b;
-    --muted-foreground: #9bbcff;
+    --muted: #123b27;
+    --muted-foreground: #a2c7ad;
 
-    --accent: #1ea5ff;
-    --accent-foreground: #0a1a4f;
+    --accent: #8af0aa;
+    --accent-foreground: #071b12;
 
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
 
-    --border: #1c3c8f;
-    --input: #1c3c8f;
-    --ring: #1ea5ff;
+    --border: #205c3a;
+    --input: #205c3a;
+    --ring: #50d982;
   }
 }
 
 /* ===== Manual Dark Mode ===== */
 
 .dark {
-  --background: #0a1a4f;
-  --foreground: #e6f2ff;
+  --background: #071b12;
+  --foreground: #e7f6eb;
 
-  --card: #0f255f;
-  --card-foreground: #e6f2ff;
+  --card: #0e2b1d;
+  --card-foreground: #e7f6eb;
 
-  --popover: #0f255f;
-  --popover-foreground: #e6f2ff;
+  --popover: #0e2b1d;
+  --popover-foreground: #e7f6eb;
 
-  --primary: #1ea5ff;
-  --primary-foreground: #0a1a4f;
+  --primary: #50d982;
+  --primary-foreground: #071b12;
 
-  --secondary: #102a6b;
-  --secondary-foreground: #e6f2ff;
+  --secondary: #123b27;
+  --secondary-foreground: #e7f6eb;
 
-  --muted: #102a6b;
-  --muted-foreground: #9bbcff;
+  --muted: #123b27;
+  --muted-foreground: #a2c7ad;
 
-  --accent: #1ea5ff;
-  --accent-foreground: #0a1a4f;
+  --accent: #8af0aa;
+  --accent-foreground: #071b12;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #1c3c8f;
-  --input: #1c3c8f;
-  --ring: #1ea5ff;
+  --border: #205c3a;
+  --input: #205c3a;
+  --ring: #50d982;
 }
 
 @keyframes gradient {

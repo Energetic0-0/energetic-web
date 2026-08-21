@@ -1,2 +1,1 @@
-import UnderConstruction from "@/app/under-construction/page";
-export default UnderConstruction;
+export { default } from "../under-construction/page";

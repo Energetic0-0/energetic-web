@@ -1,6 +1,6 @@
 # energetic-web
 
-Energetic company profile website, built from the Al Nada Web visual system and adapted for renewable-energy solutions.
+Energetic company profile website adapted for renewable-energy solutions.
 
 ## Development
 

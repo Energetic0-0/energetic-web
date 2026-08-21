@@ -44,11 +44,7 @@ export function Footer() {
             <div className="relative w-18 h-18 rounded-full overflow-hidden border-2 border-primary/20 shrink-0 bg-white dark:bg-transparent">
               {mounted && (
                 <Image
-                  src={
-                    currentTheme === "dark"
-                      ? "/img/alnadadr.png"
-                      : "/img/alnada.png"
-                  }
+                    src={currentTheme === "dark" ? "/img/energeticdr.png" : "/img/energetic.png"}
                    alt={language === "en" ? "Energetic logo placeholder" : "شعار إنرجتيك المؤقت"}
                   fill
                   className="object-contain p-1 -mt-1"

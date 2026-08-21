@@ -37,7 +37,7 @@ export function AboutStory({
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#070d24]"
+          ? "bg-[#071b12]"
           : "bg-gradient-to-b from-[#f0f6ff] via-[#f6f9ff] to-white",
       )}
     >
@@ -51,7 +51,7 @@ export function AboutStory({
       {isCompact && isDark && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full bg-blue-900/20 blur-3xl" />
+           <div className="absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full bg-green-900/20 blur-3xl" />
         </div>
       )}
 

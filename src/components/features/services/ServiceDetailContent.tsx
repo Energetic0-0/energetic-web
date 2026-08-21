@@ -41,7 +41,7 @@ export function ServiceDetailContent({ service, language, rtl, theme }: ServiceD
         className={cn(
           "relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden transition-colors duration-500",
           isDark
-            ? "bg-[#070d24]"
+             ? "bg-[#071b12]"
             : "bg-gradient-to-b from-[#f0f6ff] via-[#f6f9ff] to-white",
         )}
       >

@@ -21,7 +21,7 @@ export function AboutTeam({ isDark }: AboutTeamProps) {
       className={cn(
         "relative py-14 md:py-20 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#0a1433]"
+          ? "bg-[#0b2317]"
           : "bg-gradient-to-b from-white via-[#f6f9ff] to-[#edf3ff]",
       )}
     >

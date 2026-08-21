@@ -15,7 +15,7 @@ export function ProductsCompanies({ isDark }: { isDark: boolean }) {
     <section
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
-        isDark ? "bg-[#0a1230]" : "bg-gradient-to-b from-white to-[#f0f6ff]",
+        isDark ? "bg-[#0b2317]" : "bg-gradient-to-b from-white to-[#f0faf2]",
       )}
     >
       <div className="container max-w-7xl mx-auto px-4 md:px-8 relative">

@@ -29,7 +29,7 @@ export function ContactFormMap({
       className={cn(
         "relative py-16 md:py-24 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#0a1433]"
+          ? "bg-[#0b2317]"
           : "bg-gradient-to-b from-white via-[#f6f9ff] to-[#edf3ff]",
       )}
     >

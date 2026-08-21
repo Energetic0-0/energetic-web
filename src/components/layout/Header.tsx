@@ -116,11 +116,7 @@ export function Header() {
               <div className="relative w-25 h-25 -mt-2">
                 {mounted && (
                   <Image
-                    src={
-                      currentTheme === "dark"
-                        ? "/img/alnadadr.png"
-                        : "/img/alnada.png"
-                    }
+                    src={currentTheme === "dark" ? "/img/energeticdr.png" : "/img/energetic.png"}
                     alt="Energetic logo placeholder"
                     fill
                     className="object-contain"

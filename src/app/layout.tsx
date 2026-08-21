@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description:
     "Energetic makes renewable energy simple, accessible, measurable, and intelligent for homes, communities, and businesses.",
   icons: {
-    icon: "/img/favicon/favicon.ico",
-    shortcut: "/img/favicon/favicon-16x16.png",
-    apple: "/img/favicon/apple-touch-icon.png",
+     icon: "/img/energetic.png",
+     shortcut: "/img/energetic.png",
+     apple: "/img/energetic.png",
   },
   manifest: "/img/favicon/site.webmanifest",
 };

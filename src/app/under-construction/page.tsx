@@ -45,8 +45,8 @@ export default function UnderConstruction() {
         "flex flex-col items-center justify-center min-h-screen px-4",
         isRTL && "rtl",
         isDark
-          ? "bg-[#060f2e]"
-          : "bg-gradient-to-br from-[#f0f6ff] via-white to-[#edf3ff]",
+          ? "bg-[#071b12]"
+          : "bg-gradient-to-br from-[#f1faf3] via-white to-[#e5f4e9]",
       )}
     >
       {/* Background decoration */}
@@ -99,7 +99,7 @@ export default function UnderConstruction() {
         <h1
           className={cn(
             "text-3xl md:text-4xl font-extrabold tracking-tight mb-3",
-            isDark ? "text-white" : "text-[#0a1a4f]",
+            isDark ? "text-white" : "text-[#123b27]",
           )}
         >
           {t.title}
@@ -117,7 +117,7 @@ export default function UnderConstruction() {
         <p
           className={cn(
             "text-base mb-10 leading-relaxed max-w-md mx-auto",
-            isDark ? "text-gray-400" : "text-[#4a6fa5]",
+            isDark ? "text-[#a2c7ad]" : "text-[#557061]",
           )}
         >
           {t.description}

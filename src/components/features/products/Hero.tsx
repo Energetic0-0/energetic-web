@@ -40,7 +40,7 @@ export function ProductsHero() {
         className={cn(
           "pb-12 -mt-16 relative",
           isDark
-            ? "bg-[#060f2e]"
+             ? "bg-[#071b12]"
             : "bg-gradient-to-b from-[#d4dffa] to-[#edf2ff]",
         )}
       >

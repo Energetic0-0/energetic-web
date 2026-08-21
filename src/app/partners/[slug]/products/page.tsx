@@ -1,12 +1,10 @@
 import { PARTNERS } from "@/constants/partners";
-import PartnerProductsPageClient from "./PartnerProductsPageClient";
+import UnderConstruction from "../../../under-construction/page";
 
 export function generateStaticParams() {
-  return PARTNERS.map((partner) => ({
-    slug: partner.slug,
-  }));
+  return PARTNERS.map((partner) => ({ slug: partner.slug }));
 }
 
 export default function PartnerProductsPage() {
-  return <PartnerProductsPageClient />;
+  return <UnderConstruction />;
 }

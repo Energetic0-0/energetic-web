@@ -33,7 +33,7 @@ export function Services() {
       className={cn(
         "relative py-24 md:py-32 overflow-hidden transition-colors duration-500",
         isDark
-          ? "bg-[#070d24]"
+          ? "bg-[#071b12]"
           : "bg-gradient-to-b from-white via-[#f6f9ff] to-[#edf3ff]",
       )}
     >
