@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 
 const SLIDE_DURATION = 4000; // ms per slide
 
-const SLIDES = [
-  { src: "/img/Index/I1.jpg",  alt: "Fieldwork",  label: "Field Operations" },
-  { src: "/img/Index/I2.jpg",  alt: "Fieldwork",  label: "Field Operations" },
-  { src: "/img/Index/I3.jpg",  alt: "Lab Work",   label: "Lab Precision"    },
-  { src: "/img/Index/I4.jpg",  alt: "Equipment",  label: "Instruments"      },
-  { src: "/img/Index/I5.jpg", alt: "Device",     label: "Our Devices"      },
-  { src: "/img/Index/I6.jpg", alt: "Device",     label: "Our Devices"      },
+const GALLERY_CONFIG = [
+  { key: "hero_gallery_1", alt: "Fieldwork", label: "Field Operations" },
+  { key: "hero_gallery_2", alt: "Fieldwork", label: "Field Operations" },
+  { key: "hero_gallery_3", alt: "Lab Work",  label: "Lab Precision" },
+  { key: "hero_gallery_4", alt: "Equipment", label: "Instruments" },
+  { key: "hero_gallery_5", alt: "Device",    label: "Our Devices" },
+  { key: "hero_gallery_6", alt: "Device",    label: "Our Devices" },
 ];
 
 interface HeroGalleryProps {
@@ -20,6 +20,23 @@ interface HeroGalleryProps {
 }
 
 export function HeroGallery({ isDark }: HeroGalleryProps) {
+  const [flatImages, setFlatImages] = useState<Record<string, string>>({});
+  
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      fetch(`${apiUrl}/api/images`)
+        .then((res) => res.json())
+        .then((data) => setFlatImages(data.flat || {}))
+        .catch(console.error);
+    }
+  }, []);
+
+  const SLIDES = GALLERY_CONFIG.map(item => ({
+    ...item,
+    src: flatImages[item.key] || ''
+  })).filter(s => !!s.src);
+
   const [current, setCurrent] = useState(0);
   const [prev, setPrev]       = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -29,7 +46,7 @@ export function HeroGallery({ isDark }: HeroGalleryProps) {
 
   const goTo = useCallback(
     (index: number) => {
-      if (isAnimating || index === current) return;
+      if (isAnimating || index === current || SLIDES.length === 0) return;
       setIsAnimating(true);
       setPrev(current);
       setCurrent(index);
@@ -71,12 +88,17 @@ export function HeroGallery({ isDark }: HeroGalleryProps) {
 
   // Auto-advance
   useEffect(() => {
+    if (SLIDES.length === 0) return;
     if (slideRef.current) clearTimeout(slideRef.current);
     slideRef.current = setTimeout(advance, SLIDE_DURATION);
     return () => {
       if (slideRef.current) clearTimeout(slideRef.current);
     };
-  }, [current, advance]);
+  }, [current, advance, SLIDES.length]);
+
+  if (SLIDES.length === 0) {
+    return null; // Or a loading skeleton matching the height
+  }
 
   return (
     <div className="relative w-full h-full overflow-hidden rounded-3xl">

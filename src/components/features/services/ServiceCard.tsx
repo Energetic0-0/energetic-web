@@ -6,11 +6,15 @@ import type { SERVICES } from "@/constants/services";
 
 export function ServiceCard({
   service,
+  src,
+  icon,
   index,
   language,
   isDark,
 }: {
   service: (typeof SERVICES)[number];
+  src?: string;
+  icon?: string;
   index: number;
   language: string;
   isDark: boolean;
@@ -36,7 +40,7 @@ export function ServiceCard({
         >
           {/* Background Image */}
           <LazyImage
-            src={service.image}
+            src={src || ''}
             alt={title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -56,7 +60,7 @@ export function ServiceCard({
             >
               <div className="relative h-full w-full">
                 <LazyImage
-                  src={service.icon}
+                  src={icon || ''}
                   alt=""
                   fill
                   className="object-cover"

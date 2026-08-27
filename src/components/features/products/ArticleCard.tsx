@@ -8,6 +8,7 @@ import type { ProductArticle } from "@/constants/products";
 
 interface ArticleCardProps {
   article: ProductArticle;
+  src?: string;
   index: number;
   language: string;
   isDark: boolean;
@@ -15,6 +16,7 @@ interface ArticleCardProps {
 
 export function ArticleCard({
   article,
+  src,
   index,
   language,
   isDark,
@@ -111,7 +113,7 @@ export function ArticleCard({
               )}
             >
               <LazyImage
-                src={article.image}
+                src={src || ''}
                 alt={title}
                 fill
                 className="object-cover"

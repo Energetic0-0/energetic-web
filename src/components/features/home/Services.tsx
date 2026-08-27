@@ -15,9 +15,17 @@ export function Services() {
   const { language } = useLanguage();
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [flatImages, setFlatImages] = useState<Record<string, string>>({});
 
   useEffect(() => {
     setMounted(true);
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      fetch(`${apiUrl}/api/images`)
+        .then((res) => res.json())
+        .then((data) => setFlatImages(data.flat || {}))
+        .catch(console.error);
+    }
   }, []);
 
   const t = language === "en" ? SERVICES_CONTENT.en : SERVICES_CONTENT.ar;
@@ -95,6 +103,8 @@ export function Services() {
             <ServiceCard
               key={index}
               service={service}
+              src={flatImages[service.image]}
+              icon={flatImages[service.icon]}
               index={index}
               language={language}
               isDark={isDark}

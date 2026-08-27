@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/use-language";
 import { cn } from "@/lib/utils";
@@ -11,6 +12,18 @@ export function ProductsArticles({ isDark }: { isDark: boolean }) {
   const { language } = useLanguage();
   const t =
     language === "en" ? PRODUCTS_PAGE_CONTENT.en : PRODUCTS_PAGE_CONTENT.ar;
+
+  const [flatImages, setFlatImages] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      fetch(`${apiUrl}/api/images`)
+        .then((res) => res.json())
+        .then((data) => setFlatImages(data.flat || {}))
+        .catch(console.error);
+    }
+  }, []);
 
   return (
     <section
@@ -60,6 +73,7 @@ export function ProductsArticles({ isDark }: { isDark: boolean }) {
             <ArticleCard
               key={index}
               article={article}
+              src={flatImages[article.image]}
               index={index}
               language={language}
               isDark={isDark}

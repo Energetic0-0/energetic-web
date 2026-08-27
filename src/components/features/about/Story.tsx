@@ -7,11 +7,8 @@ import { CheckCircle } from "lucide-react";
 import { LazyImage } from "@/components/ui/LazyImage";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  ABOUT_CONTENT,
-  ABOUT_IMAGES,
-  ABOUT_PAGE_CONTENT,
-} from "@/constants/about";
+import { useState, useEffect } from "react";
+import { ABOUT_CONTENT, ABOUT_IMAGES, ABOUT_PAGE_CONTENT } from "@/constants/about";
 
 export interface AboutStoryProps {
   isDark: boolean;
@@ -25,11 +22,31 @@ export function AboutStory({
   isCompact = false,
 }: AboutStoryProps) {
   const { language } = useLanguage();
+  const [flatImages, setFlatImages] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      fetch(`${apiUrl}/api/images`)
+        .then((res) => res.json())
+        .then((data) => setFlatImages(data.flat || {}))
+        .catch(console.error);
+    }
+  }, []);
+
   const about = language === "en" ? ABOUT_CONTENT.en : ABOUT_CONTENT.ar;
   const storyParagraphs =
     language === "en"
       ? ABOUT_PAGE_CONTENT.en.story
-      : ABOUT_PAGE_CONTENT.ar.storyAr; // Note: Fixed this from the previous en.storyAr typo
+      : ABOUT_PAGE_CONTENT.ar.storyAr;
+
+  const mainImage = flatImages["about_story"];
+
+  // Don't render the image frame if we haven't loaded the image yet
+  // to avoid broken 404 image icons, since local fallbacks are deleted.
+  if (!mainImage) {
+    return null; // Or some loading skeleton if preferred
+  }
 
   return (
     <section
@@ -73,7 +90,7 @@ export function AboutStory({
               )}
             >
               <LazyImage
-                src={ABOUT_IMAGES.main}
+                src={mainImage}
                  alt="Energetic renewable energy team"
                 fill
                 className="object-cover"

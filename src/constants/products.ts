@@ -40,10 +40,10 @@ export const PRODUCTS_PAGE_CONTENT = {
 } as const;
 
 export const PRODUCT_ARTICLES: ProductArticle[] = [
-  { title: { en: "Solar PV Systems", ar: "أنظمة الطاقة الشمسية" }, description: { en: "Site-specific solar systems designed to reduce electricity costs and carbon emissions.", ar: "أنظمة شمسية مصممة حسب الموقع لتقليل تكاليف الكهرباء والانبعاثات الكربونية." }, image: "/img/Applications/consult.jpg" },
-  { title: { en: "Battery Optimization", ar: "تحسين البطاريات" }, description: { en: "Smart peak-shaving and storage strategies designed for maximum financial savings.", ar: "استراتيجيات ذكية لتقليل ذروة الاستهلاك وتحقيق أكبر وفر مالي." }, image: "/img/Applications/control.jpg" },
-  { title: { en: "Smart Energy Monitoring", ar: "المراقبة الذكية للطاقة" }, description: { en: "Real-time dashboards that make solar generation, savings, and system health easy to understand.", ar: "لوحات تحكم فورية تجعل إنتاج الطاقة والوفر وحالة النظام سهلة الفهم." }, image: "/img/Applications/tablet.jpg" },
-  { title: { en: "EV Charging", ar: "شحن السيارات الكهربائية" }, description: { en: "Charging infrastructure that fits the energy needs of homes, communities, and businesses.", ar: "بنية شحن تناسب احتياجات المنازل والمجتمعات والشركات من الطاقة." }, image: "/img/Applications/presentation.jpg" },
+  { title: { en: "Solar PV Systems", ar: "أنظمة الطاقة الشمسية" }, description: { en: "Site-specific solar systems designed to reduce electricity costs and carbon emissions.", ar: "أنظمة شمسية مصممة حسب الموقع لتقليل تكاليف الكهرباء والانبعاثات الكربونية." }, image: "application_5" },
+  { title: { en: "Battery Optimization", ar: "تحسين البطاريات" }, description: { en: "Smart peak-shaving and storage strategies designed for maximum financial savings.", ar: "استراتيجيات ذكية لتقليل ذروة الاستهلاك وتحقيق أكبر وفر مالي." }, image: "application_6" },
+  { title: { en: "Smart Energy Monitoring", ar: "المراقبة الذكية للطاقة" }, description: { en: "Real-time dashboards that make solar generation, savings, and system health easy to understand.", ar: "لوحات تحكم فورية تجعل إنتاج الطاقة والوفر وحالة النظام سهلة الفهم." }, image: "application_17" },
+  { title: { en: "EV Charging", ar: "شحن السيارات الكهربائية" }, description: { en: "Charging infrastructure that fits the energy needs of homes, communities, and businesses.", ar: "بنية شحن تناسب احتياجات المنازل والمجتمعات والشركات من الطاقة." }, image: "application_14" },
 ];
 
 export const COMPANY_PRODUCTS: CompanyProduct[] = PRODUCT_ARTICLES.map((product, index) => ({

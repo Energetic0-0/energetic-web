@@ -9,36 +9,44 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { HERO_CONTENT, HERO_STATS } from "@/constants/hero";
-
 import { HeroGallery } from "@/components/features/home/HeroGallery";
 import { Marquee } from "@/components/ui/Marquee";
+
 
 export function Hero() {
   const { language } = useLanguage();
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [flatImages, setFlatImages] = useState<Record<string, string>>({});
 
   useEffect(() => {
     setMounted(true);
+    // Fetch dynamic images from API
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (apiUrl) {
+      fetch(`${apiUrl}/api/images`)
+        .then((res) => res.json())
+        .then((data) => setFlatImages(data.flat || {}))
+        .catch(console.error);
+    }
   }, []);
 
   const t = language === "en" ? HERO_CONTENT.en : HERO_CONTENT.ar;
   const isRTL = language === "ar";
   const isDark = mounted ? resolvedTheme === "dark" : true;
 
-  const supplierLogos = Array.from({ length: 11 }, (_, index) => ({
-    src: `/img/Suppliers/s${index + 1}.png`,
-    alt: `Supplier logo ${index + 1}`,
-  }));
-  const partnerLogos = Array.from({ length: 15 }, (_, index) => ({
-    src: `/img/Partners/p${index + 1}.png`,
-    alt: `Partner logo ${index + 1}`,
-  }));
-  /* Customer logos can be restored when the customer images are added.
-  const customerLogos = Array.from({ length: 15 }, (_, index) => ({
-    src: `/img/customers/${index + 1}.jpg`,
-    alt: `Customer logo ${index + 1}`,
-  })); */
+  // Build supplier/partner logos dynamically
+  const buildLogos = (prefix: string, count: number, altBase: string) => {
+    return Array.from({ length: count }, (_, i) => {
+      const key = `${prefix}${i + 1}`;
+      const src = flatImages[key];
+      return { key, src, alt: `${altBase} ${i + 1}` };
+    }).filter((l) => !!l.src);
+  };
+
+  const supplierLogos = buildLogos("supplier_s", 11, "Supplier logo");
+  const partnerLogos = buildLogos("partner_p", 15, "Partner logo");
+  const heroBg = flatImages["hero_bg"];
 
   return (
     <section
@@ -52,16 +60,19 @@ export function Hero() {
       {/* ── Background Image — dark mode only ───────────────────── */}
       {isDark && (
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/img/header-page.jpg"
-            alt="Background"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
+          {heroBg ? (
+            <Image
+              src={heroBg}
+              alt="Background"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
+          ) : null}
           <div className="absolute inset-0 bg-gradient-to-b from-[#071b12]/80 via-[#071b12]/60 to-[#071b12]/90" />
         </div>
       )}
+
 
       {/* ── Light mode decorative blobs ──────────────────────────── */}
       {!isDark && (

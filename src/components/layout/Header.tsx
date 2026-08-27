@@ -9,7 +9,15 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-export function Header() {
+interface HeaderProps {
+  logoLight?: string;  // Cloudinary URL for light-mode logo
+  logoDark?:  string;  // Cloudinary URL for dark-mode logo
+}
+
+export function Header({ logoLight, logoDark }: HeaderProps = {}) {
+  const LOGO_LIGHT = logoLight || '/img/energetic.png';
+  const LOGO_DARK  = logoDark  || '/img/energeticdr.png';
+
   const { language, toggleLanguage } = useLanguage();
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,7 +124,7 @@ export function Header() {
               <div className="relative w-25 h-25 -mt-2">
                 {mounted && (
                   <Image
-                    src={currentTheme === "dark" ? "/img/energeticdr.png" : "/img/energetic.png"}
+                    src={currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT}
                     alt="Energetic logo placeholder"
                     fill
                     className="object-contain"
