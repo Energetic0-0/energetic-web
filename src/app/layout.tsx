@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 export async function generateMetadata(): Promise<Metadata> {
   const { flat } = await getSiteImages();
 
-  const icon16  = flat['favicon_16']  || '/img/energetic.png';
-  const icon32  = flat['favicon_32']  || '/img/energetic.png';
-  const apple   = flat['favicon_180'] || '/img/energetic.png';
-  const pwa192  = flat['favicon_192'] || '/img/energetic.png';
-  const pwa512  = flat['favicon_512'] || '/img/energetic.png';
+  const icon16  = flat['favicon_16']  || undefined;
+  const icon32  = flat['favicon_32']  || undefined;
+  const apple   = flat['favicon_180'] || undefined;
+  const pwa192  = flat['favicon_192'] || undefined;
+  const pwa512  = flat['favicon_512'] || undefined;
 
   return {
     title: "Energetic | Renewable Energy Solutions",

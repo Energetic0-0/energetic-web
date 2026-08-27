@@ -15,8 +15,8 @@ interface HeaderProps {
 }
 
 export function Header({ logoLight, logoDark }: HeaderProps = {}) {
-  const LOGO_LIGHT = logoLight || '/img/energetic.png';
-  const LOGO_DARK  = logoDark  || '/img/energeticdr.png';
+  const LOGO_LIGHT = logoLight || '';
+  const LOGO_DARK  = logoDark  || '';
 
   const { language, toggleLanguage } = useLanguage();
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -122,7 +122,7 @@ export function Header({ logoLight, logoDark }: HeaderProps = {}) {
               )}
             >
               <div className="relative w-25 h-25 -mt-2">
-                {mounted && (
+                {mounted && (currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT) && (
                   <Image
                     src={currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT}
                     alt="Energetic logo placeholder"
