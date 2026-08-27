@@ -56,12 +56,13 @@ export function HeroGallery({ isDark }: HeroGalleryProps) {
         setIsAnimating(false);
       }, 700);
     },
-    [current, isAnimating],
+    [current, isAnimating, SLIDES.length],
   );
 
   const advance = useCallback(() => {
     setCurrent((c) => {
-      const next = (c + 1) % SLIDES.length;
+      const len = Math.max(1, SLIDES.length);
+      const next = (c + 1) % len;
       setPrev(c);
       setIsAnimating(true);
       setProgress(0);
@@ -71,7 +72,7 @@ export function HeroGallery({ isDark }: HeroGalleryProps) {
       }, 700);
       return next;
     });
-  }, []);
+  }, [SLIDES.length]);
 
   // Progress ticker
   useEffect(() => {

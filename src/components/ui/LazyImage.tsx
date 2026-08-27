@@ -53,7 +53,7 @@ export function LazyImage({
       )}
 
       {/* Fallback placeholder for missing images */}
-      {errored ? (
+      {(errored || !props.src) ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500 gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
