@@ -106,7 +106,7 @@ export function AboutStory({
               )}
             >
               <LazyImage
-                src={ABOUT_IMAGES.secondary}
+                src={flatImages["about_secondary"]}
                  alt="Energetic team"
                 fill
                 className="object-cover"

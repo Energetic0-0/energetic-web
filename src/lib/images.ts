@@ -25,6 +25,7 @@ const FALLBACKS: Record<string, string> = {
   logo_dark:   '',
   hero_bg:     '',
   about_story: '',
+  about_secondary: '',
   favicon_16:  '',
   favicon_32:  '',
   favicon_180: '',
