@@ -121,7 +121,7 @@ export function Header({ logoLight, logoDark }: HeaderProps = {}) {
                 "shadow-2xl shadow-primary/20",
               )}
             >
-              <div className="relative w-25 h-25 -mt-2">
+              <div className="relative w-[70%] h-[70%]">
                 {mounted && (currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT) && (
                   <Image
                     src={currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT}
