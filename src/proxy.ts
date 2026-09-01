@@ -6,14 +6,14 @@ export function proxy(request: NextRequest) {
   const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
 
   // If maintenance mode is ON and the user is NOT already on the under-construction page, redirect them.
-  if (isMaintenanceMode && request.nextUrl.pathname !== '/under-construction') {
+  if (isMaintenanceMode && !request.nextUrl.pathname.startsWith('/under-construction')) {
     const url = request.nextUrl.clone();
     url.pathname = '/under-construction';
     return NextResponse.redirect(url); // Redirects the user to /under-construction
   }
 
   // If maintenance mode is OFF and the user tries to manually visit the under-construction page, redirect to home.
-  if (!isMaintenanceMode && request.nextUrl.pathname === '/under-construction') {
+  if (!isMaintenanceMode && request.nextUrl.pathname.startsWith('/under-construction')) {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url);
