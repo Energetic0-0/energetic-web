@@ -72,7 +72,10 @@ export default async function RootLayout({
               logoDark={flat['logo_dark']}
             />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <Footer
+              logoLight={flat['logo_light']}
+              logoDark={flat['logo_dark']}
+            />
           </LanguageProvider>
         </ThemeProvider>
       </body>

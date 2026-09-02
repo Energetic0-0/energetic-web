@@ -16,7 +16,14 @@ import {
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-export function Footer() {
+interface FooterProps {
+  logoLight?: string;
+  logoDark?: string;
+}
+
+export function Footer({ logoLight, logoDark }: FooterProps = {}) {
+  const LOGO_LIGHT = logoLight || '';
+  const LOGO_DARK  = logoDark  || '';
   const { language } = useLanguage();
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -42,10 +49,10 @@ export function Footer() {
             className="flex items-center gap-3"
           >
             <div className="relative w-18 h-18 rounded-full overflow-hidden border-2 border-primary/20 shrink-0 bg-white dark:bg-transparent">
-              {mounted && (
+              {mounted && (currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT) && (
                 <Image
-                    src={currentTheme === "dark" ? "/img/energeticdr.png" : "/img/energetic.png"}
-                   alt={language === "en" ? "Energetic logo placeholder" : "شعار إنرجتيك المؤقت"}
+                    src={currentTheme === "dark" ? LOGO_DARK : LOGO_LIGHT}
+                   alt={language === "en" ? "Energetic logo" : "شعار إنرجتيك"}
                   fill
                   className="object-contain p-1 -mt-1"
                 />
